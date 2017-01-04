@@ -14,11 +14,11 @@ dependencies:
     
 test:
   override:
-    - npm run test
+    - npm run build:prod
     
 deployment:
   prod:
     branch: master
     commands:
       - npm run build
-      - aws s3 sync /dist s3://frontpagebt911.s3-website-us-west-2.amazonaws.com/ --delete
+      - aws s3 sync jekyll/angular2-webpack-starter/dist s3://frontpagebt911.s3-website-us-west-2.amazonaws.com/ --delete
