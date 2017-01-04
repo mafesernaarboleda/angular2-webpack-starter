@@ -5,20 +5,16 @@ machine:
 
 dependencies:
   override:
-    - npm install --global webpack
-    - npm install --global webpack-dev-server
-    - npm install --global karma-cli
-    - npm install --global protractor
-    - npm install --global typescript
+    - npm install webpack-dev-server rimraf webpack -g
     - npm install
     
 test:
   override:
-    - npm run build:prod
+    - npm run test
     
 deployment:
   prod:
     branch: master
     commands:
-      - npm run build
-      - aws s3 sync jekyll/angular2-webpack-starter/dist s3://frontpagebt911.s3-website-us-west-2.amazonaws.com/ --delete
+      - npm run build:prod
+      - aws s3 sync /angular2-webpack-starter/dist s3://frontpagebt911.s3-website-us-west-2.amazonaws.com/ --delete
