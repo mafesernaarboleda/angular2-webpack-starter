@@ -17,4 +17,4 @@ deployment:
     branch: master
     commands:
       - npm run build:prod
-      - aws s3 sync /angular2-webpack-starter/dist s3://frontpagebt911.s3-website-us-west-2.amazonaws.com/ --delete
+      - aws s3 sync /home/ubuntu/angular2-webpack-starter/dist s3://frontpagebt911.s3-website-us-west-2.amazonaws.com/ --delete
