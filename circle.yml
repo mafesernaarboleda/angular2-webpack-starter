@@ -1,0 +1,19 @@
+machine:
+  timezone: America/New_York
+  node:
+    version: 4.0.0
+
+dependencies:
+  override:
+    - npm install
+
+test:
+  override:
+    - npm test
+    
+deployment:
+  prod:
+    branch: master
+    commands:
+      - npm run build
+      - aws s3 sync /dist s3://frontpagebt911.s3-website-us-west-2.amazonaws.com/ --delete
